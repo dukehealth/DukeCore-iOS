@@ -17,7 +17,7 @@ Installation
 The latest version of _DukeCore_ can be cloned with 
 
 ```
-git clone git@github.com:dukemike/DukeCore-iOS.git
+git clone git@github.com:dukehealth/DukeCore-iOS.git
 ```
 
 Building
