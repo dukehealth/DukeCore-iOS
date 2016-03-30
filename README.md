@@ -23,7 +23,7 @@ git clone git@github.com:dukehealth/DukeCore-iOS.git
 Building
 --------
 
-Build the components of _DukeCore_ by dragging each file into your Xcode project or workspace.
+Build the components of _DukeCore_ by dragging the _DukeCore_ directory into your Xcode project or workspace __and__ choosing to _create groups_ for _added folders_.
 
 
 License
