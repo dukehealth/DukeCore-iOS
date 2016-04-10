@@ -62,6 +62,11 @@ extension NSDate {
         return comp.weekday - 1
     }
     
+    func dayOfYear() -> Int {
+        let cal: NSCalendar = NSCalendar.currentCalendar()
+        return cal.ordinalityOfUnit(.Day, inUnit: .Year, forDate: self)
+    }
+    
     func isWeekday() -> Bool {
         let dayOfWeek = self.dayOfWeek()
         return dayOfWeek > 0 && dayOfWeek < 6
