@@ -162,6 +162,13 @@ extension NSDate {
         return cal.dateFromComponents(comp)
     }
 
+    /** Returns the number of days since the other date. Days in the future have negative values. */
+    func daysSince(other: NSDate) -> Int {
+        let cal: NSCalendar = NSCalendar.currentCalendar()
+        let comp: NSDateComponents = cal.components([.Day], fromDate: other.startOfDay()!, toDate: self.startOfDay()!, options: [.WrapComponents])
+        return comp.day
+    }
+
     // MARK: -- comparitors
     
     func isInTheFuture() -> Bool {
