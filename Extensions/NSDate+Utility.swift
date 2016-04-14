@@ -46,7 +46,18 @@ extension NSDate {
     func defaultTimeString() -> String? {
         return NSDate.DefaultTimeFormatter.stringFromDate(self)
     }
-    
+
+    func defaultString() -> String? {
+        return ISO8601String()
+    }
+
+    // MARK: -- converters
+
+    func gregorianCalendarComponentValue(unitFlags: NSCalendarUnit) -> NSDateComponents {
+        let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        return gregorianCalendar!.components(unitFlags, fromDate: self)
+    }
+
     // MARK: -- components
     
     func hourOfDay() -> Int {
