@@ -25,6 +25,11 @@ extension NSDate {
         formatter.timeZone = NSTimeZone(abbreviation: "UTC")
         return formatter
     }
+    static var DefaultShortDateFormatter: NSDateFormatter {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter
+    }
     static var DefaultTimeFormatter: NSDateFormatter {
         let formatter: NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = "h:mm a"
@@ -49,6 +54,10 @@ extension NSDate {
 
     func defaultString() -> String? {
         return ISO8601String()
+    }
+
+    func shortDateString() -> String {
+        return NSDate.DefaultShortDateFormatter.stringFromDate(self)
     }
 
     // MARK: -- converters
