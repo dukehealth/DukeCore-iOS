@@ -64,7 +64,9 @@ extension NSDate {
 
     func gregorianCalendarComponentValue(unitFlags: NSCalendarUnit) -> NSDateComponents {
         let gregorianCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        return gregorianCalendar!.components(unitFlags, fromDate: self)
+        let components: NSDateComponents = gregorianCalendar!.components(unitFlags, fromDate: self)
+        components.calendar = gregorianCalendar
+        return components
     }
 
     // MARK: -- components
