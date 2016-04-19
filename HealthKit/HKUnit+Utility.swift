@@ -30,13 +30,18 @@ extension HKUnit {
         return HKUnit.secondUnit()
     }
 
+    /// The default count/time unit. The default is count/second.
+    static func defaultCountsPerTimeUnit() -> HKUnit {
+        return HKUnit(fromString: "count/s")
+    }
+
     /**
      * Returns the default unit for an `HKQuantity` type.
      * - parameters:
      *  - type: the quantity type
      */
     static func defaultUnitForType(type: String) -> HKUnit {
-        var unit: HKUnit?
+        var unit: HKUnit? = nil
 
         // Handle types only availalbe in specific platforms
         if #available(iOS 9.3, *) {
@@ -57,6 +62,8 @@ extension HKUnit {
                 unit = defaultLengthUnit()
             case HKQuantityTypeIdentifierDistanceWalkingRunning:
                 unit = defaultLengthUnit()
+            case HKQuantityTypeIdentifierHeartRate:
+                unit = defaultCountsPerTimeUnit()
             case HKQuantityTypeIdentifierStepCount:
                 unit = defaultCountUnit()
             default:
