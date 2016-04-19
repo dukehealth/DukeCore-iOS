@@ -14,7 +14,7 @@ extension HKQuantitySample {
      * Returns the count unit value for an `HKQuantitySample`.
      * This method assumes that the default unit type was used when constructing the sample.
      */
-    func stepCount() -> Double {
+    func countValue() -> Double {
         let unit = HKUnit.defaultCountUnit()
         return self.quantity.doubleValueForUnit(unit)
     }
@@ -23,7 +23,7 @@ extension HKQuantitySample {
      * Returns the energy unit value for an `HKQuantitySample`.
      * This method assumes that the default unit type was used when constructing the sample.
      */
-    func kcalCount() -> Double {
+    func energyValue() -> Double {
         let unit = HKUnit.defaultEnergyUnit()
         return self.quantity.doubleValueForUnit(unit)
     }
@@ -32,7 +32,7 @@ extension HKQuantitySample {
      * Returns the length unit value for an `HKQuantitySample`.
      * This method assumes that the default unit type was used when constructing the sample.
      */
-    func length() -> Double {
+    func lengthValue() -> Double {
         let unit = HKUnit.defaultLengthUnit()
         return self.quantity.doubleValueForUnit(unit)
     }
@@ -41,8 +41,17 @@ extension HKQuantitySample {
      * Returns the time unit value for an `HKQuantitySample`.
      * This method assumes that the default unit type was used when constructing the sample.
      */
-    func time() -> Double {
+    func timeValue() -> Double {
         let unit = HKUnit.defaultTimeUnit()
+        return self.quantity.doubleValueForUnit(unit)
+    }
+
+    /**
+     * Returns the count/time unit value for an `HKQuantitySample`.
+     * This method assumes that the default unit type was used when constructing the sample.
+     */
+    func countsPerTimeValue() -> Double {
+        let unit = HKUnit.defaultCountsPerTimeUnit()
         return self.quantity.doubleValueForUnit(unit)
     }
 }
