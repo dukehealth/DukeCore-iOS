@@ -36,7 +36,16 @@ extension HKQuantitySample {
         let unit = HKUnit.defaultLengthUnit()
         return self.quantity.doubleValueForUnit(unit)
     }
-
+    
+    /**
+     * Returns the mass unit value for an `HKQuantitySample`.
+     * This method assumes that the default unit type was used when constructing the sample.
+     */
+    func massValue() -> Double {
+        let unit = HKUnit.defaultMassUnit()
+        return self.quantity.doubleValueForUnit(unit)
+    }
+    
     /**
      * Returns the time unit value for an `HKQuantitySample`.
      * This method assumes that the default unit type was used when constructing the sample.

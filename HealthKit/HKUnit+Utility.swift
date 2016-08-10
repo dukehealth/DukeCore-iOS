@@ -20,6 +20,11 @@ extension HKUnit {
         return HKUnit.meterUnit()
     }
 
+    /// The default unit for measuring mass. The default is kilograms.
+    static func defaultMassUnit() -> HKUnit {
+        return HKUnit.gramUnitWithMetricPrefix(.Kilo)
+    }
+    
     /// The default unit for measuring energy. The default is kilocalories.
     static func defaultEnergyUnit() -> HKUnit {
         return HKUnit.kilocalorieUnit()
@@ -58,12 +63,16 @@ extension HKUnit {
             switch type {
             case HKQuantityTypeIdentifierActiveEnergyBurned:
                 unit = defaultEnergyUnit()
+            case HKQuantityTypeIdentifierBodyMass:
+                unit = defaultMassUnit()
             case HKQuantityTypeIdentifierDistanceCycling:
                 unit = defaultLengthUnit()
             case HKQuantityTypeIdentifierDistanceWalkingRunning:
                 unit = defaultLengthUnit()
             case HKQuantityTypeIdentifierHeartRate:
                 unit = defaultCountsPerTimeUnit()
+            case HKQuantityTypeIdentifierHeight:
+                unit = defaultLengthUnit()
             case HKQuantityTypeIdentifierStepCount:
                 unit = defaultCountUnit()
             default:
