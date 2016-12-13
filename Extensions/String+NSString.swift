@@ -19,16 +19,16 @@ extension String {
         return ns.lastPathComponent
     }
     var stringByDeletingLastPathComponent: String? {
-        return ns.stringByDeletingLastPathComponent
+        return ns.deletingLastPathComponent
     }
-    func stringByAppendingPathComponent(path: String) -> String {
-        return ns.stringByAppendingPathComponent(path)
+    func stringByAppendingPathComponent(_ path: String) -> String {
+        return ns.appendingPathComponent(path)
     }
     var stringByDeletingPathExtension: String? {
-        return ns.stringByDeletingPathExtension
+        return ns.deletingPathExtension
     }
     func trim() -> String
     {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespaces)
     }
 }

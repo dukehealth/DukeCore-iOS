@@ -8,28 +8,28 @@
 
 import Foundation
 
-struct Number {
-    static let DecimalStyleFormatter: NSNumberFormatter = {
-        let formatter: NSNumberFormatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
+struct MyNumberFormatter {
+    static let DecimalStyleFormatter: NumberFormatter = {
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         return formatter
     }()
 }
 
 extension Int {
     var decimalStyleString: String {
-        return Number.DecimalStyleFormatter.stringFromNumber(self) ?? ""
+        return MyNumberFormatter.DecimalStyleFormatter.string(from: self as NSNumber) ?? ""
     }
 }
 
 extension Double {
     var decimalStyleString: String {
-        return Number.DecimalStyleFormatter.stringFromNumber(self) ?? ""
+        return MyNumberFormatter.DecimalStyleFormatter.string(from: self as NSNumber) ?? ""
     }
 }
 
 extension Float {
     var decimalStyleString: String {
-        return Number.DecimalStyleFormatter.stringFromNumber(self) ?? ""
+        return MyNumberFormatter.DecimalStyleFormatter.string(from: self as NSNumber) ?? ""
     }
 }
