@@ -12,25 +12,25 @@ extension Date {
     
     // MARK: -- formatters
     
-    static var ISO8601formatter: DateFormatter {
+    public static var ISO8601formatter: DateFormatter {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }
-    static var ISO8601UTCformatter: DateFormatter {
+    public static var ISO8601UTCformatter: DateFormatter {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(abbreviation: "UTC")
         return formatter
     }
-    static var DefaultShortDateFormatter: DateFormatter {
+    public static var DefaultShortDateFormatter: DateFormatter {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "dd MMM yyyy"
         return formatter
     }
-    static var DefaultTimeFormatter: DateFormatter {
+    public static var DefaultTimeFormatter: DateFormatter {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         return formatter
