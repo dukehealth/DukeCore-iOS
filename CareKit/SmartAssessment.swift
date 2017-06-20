@@ -6,6 +6,8 @@ import ResearchKit
  An `Assessment` that is configured by a JSON task file.
  */
 class SmartAssessment: Assessment {
+    static let taskClassName = "SmartAssessment"
+    
     var identifier: String = ""
     var name: String?
     var summary: String?
@@ -21,7 +23,8 @@ class SmartAssessment: Assessment {
             tintColor: UIColor.dukeHealthBlue,
             resultResettable: true,
             schedule: schedule,
-            userInfo: nil
+            userInfo: nil,
+            optional: false
         )
         return activity
     }
@@ -34,7 +37,7 @@ class SmartAssessment: Assessment {
         
         let filePath: String? = Bundle.main.path(forResource: taskFilename, ofType:"json")
         guard FileManager.default.fileExists(atPath: filePath!) else {
-            fatalError("unable to find \(filePath)")
+            fatalError("unable to find \(filePath!)")
         }
         let jsonData = try! NSData(contentsOfFile: filePath!, options: NSData.ReadingOptions.uncached)
         var surveyStepsAndNavRules = [(ORKStep, ORKStepNavigationRule?)]()
@@ -49,7 +52,7 @@ class SmartAssessment: Assessment {
                 surveyStepsAndNavRules = DMJSONSerialization.surveySectionsFromJSONObject(json: jsonElements!)
             }
         } catch {
-            fatalError("Unable to parse survey JSON in \(filePath)")
+            fatalError("Unable to parse survey JSON in \(filePath!)")
         }
         
         for surveyStepAndNavRules in surveyStepsAndNavRules {
