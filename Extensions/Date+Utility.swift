@@ -104,6 +104,13 @@ extension Date {
         return cal.date(from: comp)
     }
     
+    func monthsAgo(_ months: Int) -> Date? {
+        let cal: Calendar = Calendar.current
+        var comp: DateComponents = (cal as NSCalendar).components([.day, .month, .year, .hour, .minute, .second, .nanosecond], from: self)
+        comp.month = comp.month! - months
+        return cal.date(from: comp)
+    }
+
     func yesterday() -> Date? {
         return daysAgo(1)
     }
